@@ -24,10 +24,30 @@ class UserController extends Controller //implements HasMiddleware
     /**
      * Display a listing of the resource.
      */
-    public function index()
+
+    public function index(Request $request)
     {
-        $users = User::latest()->paginate(10);
-        return view('users.list',compact('users'));
+        $query = User::query();
+
+        // Filter by search term
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                    ->orWhere('email', 'like', "%{$search}%");
+            });
+        }
+
+        // Filter by role
+        if ($request->filled('role')) {
+            $query->whereHas('roles', function ($q) use ($request) {
+                $q->where('name', $request->role);
+            });
+        }
+
+        $users = $query->with('roles')->latest()->paginate(10)->appends($request->query());
+
+        return view('users.list', compact('users'));
     }
 
     /**
@@ -36,36 +56,33 @@ class UserController extends Controller //implements HasMiddleware
     public function create()
     {
         $roles = Role::orderBy('name', 'ASC')->get();
-        return view('users.create',[
+        return view('users.create', [
             'roles' => $roles
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),[
-            'name' => 'required|min:3',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:3|same:confirm_password',
-            'confirm_password' => 'required',
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|string|min:8',
+            'confirm_password' => 'required|same:password',
+            'roles' => 'nullable|array',
         ]);
 
-        if($validator->passes()){
-            $user = new User();
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->password = Hash::make($request->password);
-            $user->save();
-            $user->syncRoles($request->role);
+        $user = User::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => Hash::make($validated['password']),
+        ]);
 
-            return redirect()->route('users.index')->with('success','User Successfully Created!');
-        }else{
-            return redirect()->back()->withInput()->withErrors($validator);
+        if ($request->has('roles')) {
+            $user->assignRole($request->roles);
         }
 
+        return redirect()->route('users.index')->with('success', 'User created successfully!');
     }
 
     /**
@@ -85,56 +102,40 @@ class UserController extends Controller //implements HasMiddleware
         $roles = Role::orderBy('name', 'ASC')->get();
         $hasRoles = $user->roles->pluck('id');
         return view('users.edit', [
-            'user'=>$user,
-            'roles'=>$roles,
+            'user' => $user,
+            'roles' => $roles,
             'hasRoles' => $hasRoles
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $user = User::findOrFail($id);
 
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(), [
             'name' => 'required|min:3',
-            'email' => 'required|email|unique:users,email,'.$id.',id',
-
+            'email' => 'required|email|unique:users,email,' . $id,
+            'roles' => 'nullable|array',
+            'roles.*' => 'exists:roles,name'
         ]);
 
-        if($validator->passes()){
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->save();
-            $user->syncRoles($request->role);
-
-            return redirect()->route('users.index')->with('success','user Successfully Updated!');
-        }else{
+        if ($validator->fails()) {
             return redirect()->back()->withInput()->withErrors($validator);
         }
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+        $user->syncRoles($request->roles ?? []);
+        return redirect()->route('users.index')->with('success', 'User successfully updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Request $request)
+
+    public function destroy(User $user)
     {
-        $id = $request->id;
-        $user = User::find($id);
-
-        if($user == null){
-            session()->flash('error','user not found!');
-            return response()->json([
-                'status' => false
-            ]);
-        }
-
         $user->delete();
-        session()->flash('success','user Deleted Successfully!');
-        return response()->json([
-            'status' => true
-        ]);
+        return redirect()->route('users.index')->with('success', 'User deleted successfully');
     }
 }

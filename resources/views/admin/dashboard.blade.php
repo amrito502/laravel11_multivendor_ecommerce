@@ -1,444 +1,565 @@
 @extends('admin.master')
 
 @section('admin')
-<main class="app-main">
-    <!--begin::App Content Header-->
-    <div class="app-content-header">
-      <!--begin::Container-->
-      <div class="container-fluid">
-        <!--begin::Row-->
-        <div class="row">
-          <div class="col-sm-6"><h3 class="mb-0">Dashboard</h3></div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-end">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-            </ol>
-          </div>
+<div class="container mx-auto px-4 py-6">
+    <div class="flex flex-wrap -m-2 mb-6">
+        <!-- Dashboard Summary Cards -->
+        <div class="w-full sm:w-1/2 lg:w-1/4 p-2">
+            <div class="bg-gradient-to-tr from-indigo-500 to-purple-500 text-white rounded-xl shadow-lg p-5 hover:scale-[1.02] transition-transform duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="bg-white bg-opacity-20 p-3 rounded-full">
+                        <i class="fa-solid fa-users text-2xl"></i>
+                    </div>
+                    <span class="text-sm opacity-80">Today</span>
+                </div>
+                <h3 class="text-sm font-medium opacity-90">Total Users</h3>
+                <p class="text-3xl font-bold">500</p>
+            </div>
         </div>
-        <!--end::Row-->
-      </div>
-      <!--end::Container-->
+    
+        <div class="w-full sm:w-1/2 lg:w-1/4 p-2">
+            <div class="bg-gradient-to-tr from-emerald-500 to-teal-500 text-white rounded-xl shadow-lg p-5 hover:scale-[1.02] transition-transform duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="bg-white bg-opacity-20 p-3 rounded-full">
+                        <i class="fa-solid fa-box-open text-2xl"></i>
+                    </div>
+                    <span class="text-sm opacity-80">Monthly</span>
+                </div>
+                <h3 class="text-sm font-medium opacity-90">Total Orders</h3>
+                <p class="text-3xl font-bold">1,250</p>
+            </div>
+        </div>
+    
+        <div class="w-full sm:w-1/2 lg:w-1/4 p-2">
+            <div class="bg-gradient-to-tr from-yellow-400 to-orange-500 text-white rounded-xl shadow-lg p-5 hover:scale-[1.02] transition-transform duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="bg-white bg-opacity-20 p-3 rounded-full">
+                        <i class="fa-solid fa-sack-dollar text-2xl"></i>
+                    </div>
+                    <span class="text-sm opacity-80">This Week</span>
+                </div>
+                <h3 class="text-sm font-medium opacity-90">Total Revenue</h3>
+                <p class="text-3xl font-bold">$9,800</p>
+            </div>
+        </div>
+    
+        <div class="w-full sm:w-1/2 lg:w-1/4 p-2">
+            <div class="bg-gradient-to-tr from-pink-500 to-rose-500 text-white rounded-xl shadow-lg p-5 hover:scale-[1.02] transition-transform duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="bg-white bg-opacity-20 p-3 rounded-full">
+                        <i class="fa-solid fa-store text-2xl"></i>
+                    </div>
+                    <span class="text-sm opacity-80">Active</span>
+                </div>
+                <h3 class="text-sm font-medium opacity-90">Vendors</h3>
+                <p class="text-3xl font-bold">48</p>
+            </div>
+        </div>
     </div>
-    <!--end::App Content Header-->
-    <!--begin::App Content-->
-    <div class="app-content">
-      <!--begin::Container-->
-      <div class="container-fluid">
-        <!--begin::Row-->
-        <div class="row">
-          <!--begin::Col-->
-          <div class="col-lg-3 col-6">
-            <!--begin::Small Box Widget 1-->
-            <div class="small-box text-bg-primary">
-              <div class="inner">
-                <h3>150</h3>
-                <p>New Orders</p>
-              </div>
-              <svg
-                class="small-box-icon"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z"
-                ></path>
-              </svg>
-              <a
-                href="#"
-                class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
-              >
-                More info <i class="bi bi-link-45deg"></i>
-              </a>
+    
+    <!-- Dashboard Summary Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      
+         <!-- Total Users Card -->
+         <div class="bg-white rounded-xl shadow-md overflow-hidden border-l-4 border-indigo-500 hover:shadow-lg transition-shadow duration-300">
+            <div class="p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-500">Total Users</p>
+                        <p class="text-2xl font-bold mt-1">1,250</p>
+                        <p class="text-xs text-green-500 mt-2 flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                            </svg>
+                            12% from last month
+                        </p>
+                    </div>
+                    <div class="bg-indigo-100 p-3 rounded-full">
+                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                </div>
             </div>
-            <!--end::Small Box Widget 1-->
-          </div>
-          <!--end::Col-->
-          <div class="col-lg-3 col-6">
-            <!--begin::Small Box Widget 2-->
-            <div class="small-box text-bg-success">
-              <div class="inner">
-                <h3>53<sup class="fs-5">%</sup></h3>
-                <p>Bounce Rate</p>
-              </div>
-              <svg
-                class="small-box-icon"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z"
-                ></path>
-              </svg>
-              <a
-                href="#"
-                class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
-              >
-                More info <i class="bi bi-link-45deg"></i>
-              </a>
-            </div>
-            <!--end::Small Box Widget 2-->
-          </div>
-          <!--end::Col-->
-          <div class="col-lg-3 col-6">
-            <!--begin::Small Box Widget 3-->
-            <div class="small-box text-bg-warning">
-              <div class="inner">
-                <h3>44</h3>
-                <p>User Registrations</p>
-              </div>
-              <svg
-                class="small-box-icon"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z"
-                ></path>
-              </svg>
-              <a
-                href="#"
-                class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover"
-              >
-                More info <i class="bi bi-link-45deg"></i>
-              </a>
-            </div>
-            <!--end::Small Box Widget 3-->
-          </div>
-          <!--end::Col-->
-          <div class="col-lg-3 col-6">
-            <!--begin::Small Box Widget 4-->
-            <div class="small-box text-bg-danger">
-              <div class="inner">
-                <h3>65</h3>
-                <p>Unique Visitors</p>
-              </div>
-              <svg
-                class="small-box-icon"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  clip-rule="evenodd"
-                  fill-rule="evenodd"
-                  d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"
-                ></path>
-                <path
-                  clip-rule="evenodd"
-                  fill-rule="evenodd"
-                  d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"
-                ></path>
-              </svg>
-              <a
-                href="#"
-                class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
-              >
-                More info <i class="bi bi-link-45deg"></i>
-              </a>
-            </div>
-            <!--end::Small Box Widget 4-->
-          </div>
-          <!--end::Col-->
         </div>
-        <!--end::Row-->
-        <!--begin::Row-->
-        <div class="row">
-          <!-- Start col -->
-          <div class="col-lg-7 connectedSortable">
-            <div class="card mb-4">
-              <div class="card-header"><h3 class="card-title">Sales Value</h3></div>
-              <div class="card-body"><div id="revenue-chart"></div></div>
+
+        <!-- Total Orders Card -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden border-l-4 border-emerald-500 hover:shadow-lg transition-shadow duration-300">
+            <div class="p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-500">Total Orders</p>
+                        <p class="text-2xl font-bold mt-1">3,450</p>
+                        <p class="text-xs text-green-500 mt-2 flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                            </svg>
+                            8% from last month
+                        </p>
+                    </div>
+                    <div class="bg-emerald-100 p-3 rounded-full">
+                        <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                    </div>
+                </div>
             </div>
-            <!-- /.card -->
-            <!-- DIRECT CHAT -->
-            <div class="card direct-chat direct-chat-primary mb-4">
-              <div class="card-header">
-                <h3 class="card-title">Direct Chat</h3>
-                <div class="card-tools">
-                  <span title="3 New Messages" class="badge text-bg-primary"> 3 </span>
-                  <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse">
-                    <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
-                    <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-tool"
-                    title="Contacts"
-                    data-lte-toggle="chat-pane"
-                  >
-                    <i class="bi bi-chat-text-fill"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-lte-toggle="card-remove">
-                    <i class="bi bi-x-lg"></i>
-                  </button>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <!-- Conversations are loaded here -->
-                <div class="direct-chat-messages">
-                  <!-- Message. Default to the start -->
-                  <div class="direct-chat-msg">
-                    <div class="direct-chat-infos clearfix">
-                      <span class="direct-chat-name float-start"> Alexander Pierce </span>
-                      <span class="direct-chat-timestamp float-end"> 23 Jan 2:00 pm </span>
-                    </div>
-                    <!-- /.direct-chat-infos -->
-                    <img
-                      class="direct-chat-img"
-                      src="../../dist/assets/img/user1-128x128.jpg"
-                      alt="message user image"
-                    />
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">
-                      Is this template really for free? That's unbelievable!
-                    </div>
-                    <!-- /.direct-chat-text -->
-                  </div>
-                  <!-- /.direct-chat-msg -->
-                  <!-- Message to the end -->
-                  <div class="direct-chat-msg end">
-                    <div class="direct-chat-infos clearfix">
-                      <span class="direct-chat-name float-end"> Sarah Bullock </span>
-                      <span class="direct-chat-timestamp float-start"> 23 Jan 2:05 pm </span>
-                    </div>
-                    <!-- /.direct-chat-infos -->
-                    <img
-                      class="direct-chat-img"
-                      src="../../dist/assets/img/user3-128x128.jpg"
-                      alt="message user image"
-                    />
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">You better believe it!</div>
-                    <!-- /.direct-chat-text -->
-                  </div>
-                  <!-- /.direct-chat-msg -->
-                  <!-- Message. Default to the start -->
-                  <div class="direct-chat-msg">
-                    <div class="direct-chat-infos clearfix">
-                      <span class="direct-chat-name float-start"> Alexander Pierce </span>
-                      <span class="direct-chat-timestamp float-end"> 23 Jan 5:37 pm </span>
-                    </div>
-                    <!-- /.direct-chat-infos -->
-                    <img
-                      class="direct-chat-img"
-                      src="../../dist/assets/img/user1-128x128.jpg"
-                      alt="message user image"
-                    />
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">
-                      Working with AdminLTE on a great new app! Wanna join?
-                    </div>
-                    <!-- /.direct-chat-text -->
-                  </div>
-                  <!-- /.direct-chat-msg -->
-                  <!-- Message to the end -->
-                  <div class="direct-chat-msg end">
-                    <div class="direct-chat-infos clearfix">
-                      <span class="direct-chat-name float-end"> Sarah Bullock </span>
-                      <span class="direct-chat-timestamp float-start"> 23 Jan 6:10 pm </span>
-                    </div>
-                    <!-- /.direct-chat-infos -->
-                    <img
-                      class="direct-chat-img"
-                      src="../../dist/assets/img/user3-128x128.jpg"
-                      alt="message user image"
-                    />
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">I would love to.</div>
-                    <!-- /.direct-chat-text -->
-                  </div>
-                  <!-- /.direct-chat-msg -->
-                </div>
-                <!-- /.direct-chat-messages-->
-                <!-- Contacts are loaded here -->
-                <div class="direct-chat-contacts">
-                  <ul class="contacts-list">
-                    <li>
-                      <a href="#">
-                        <img
-                          class="contacts-list-img"
-                          src="../../dist/assets/img/user1-128x128.jpg"
-                          alt="User Avatar"
-                        />
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            Count Dracula
-                            <small class="contacts-list-date float-end"> 2/28/2023 </small>
-                          </span>
-                          <span class="contacts-list-msg"> How have you been? I was... </span>
-                        </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                    <li>
-                      <a href="#">
-                        <img
-                          class="contacts-list-img"
-                          src="../../dist/assets/img/user7-128x128.jpg"
-                          alt="User Avatar"
-                        />
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            Sarah Doe
-                            <small class="contacts-list-date float-end"> 2/23/2023 </small>
-                          </span>
-                          <span class="contacts-list-msg"> I will be waiting for... </span>
-                        </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                    <li>
-                      <a href="#">
-                        <img
-                          class="contacts-list-img"
-                          src="../../dist/assets/img/user3-128x128.jpg"
-                          alt="User Avatar"
-                        />
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            Nadia Jolie
-                            <small class="contacts-list-date float-end"> 2/20/2023 </small>
-                          </span>
-                          <span class="contacts-list-msg"> I'll call you back at... </span>
-                        </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                    <li>
-                      <a href="#">
-                        <img
-                          class="contacts-list-img"
-                          src="../../dist/assets/img/user5-128x128.jpg"
-                          alt="User Avatar"
-                        />
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            Nora S. Vans
-                            <small class="contacts-list-date float-end"> 2/10/2023 </small>
-                          </span>
-                          <span class="contacts-list-msg"> Where is your new... </span>
-                        </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                    <li>
-                      <a href="#">
-                        <img
-                          class="contacts-list-img"
-                          src="../../dist/assets/img/user6-128x128.jpg"
-                          alt="User Avatar"
-                        />
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            John K.
-                            <small class="contacts-list-date float-end"> 1/27/2023 </small>
-                          </span>
-                          <span class="contacts-list-msg"> Can I take a look at... </span>
-                        </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                    <li>
-                      <a href="#">
-                        <img
-                          class="contacts-list-img"
-                          src="../../dist/assets/img/user8-128x128.jpg"
-                          alt="User Avatar"
-                        />
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            Kenneth M.
-                            <small class="contacts-list-date float-end"> 1/4/2023 </small>
-                          </span>
-                          <span class="contacts-list-msg"> Never mind I found... </span>
-                        </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                  </ul>
-                  <!-- /.contacts-list -->
-                </div>
-                <!-- /.direct-chat-pane -->
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer">
-                <form action="#" method="post">
-                  <div class="input-group">
-                    <input
-                      type="text"
-                      name="message"
-                      placeholder="Type Message ..."
-                      class="form-control"
-                    />
-                    <span class="input-group-append">
-                      <button type="button" class="btn btn-primary">Send</button>
-                    </span>
-                  </div>
-                </form>
-              </div>
-              <!-- /.card-footer-->
-            </div>
-            <!-- /.direct-chat -->
-          </div>
-          <!-- /.Start col -->
-          <!-- Start col -->
-          <div class="col-lg-5 connectedSortable">
-            <div class="card text-white bg-primary bg-gradient border-primary mb-4">
-              <div class="card-header border-0">
-                <h3 class="card-title">Sales Value</h3>
-                <div class="card-tools">
-                  <button
-                    type="button"
-                    class="btn btn-primary btn-sm"
-                    data-lte-toggle="card-collapse"
-                  >
-                    <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
-                    <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="card-body"><div id="world-map" style="height: 220px"></div></div>
-              <div class="card-footer border-0">
-                <!--begin::Row-->
-                <div class="row">
-                  <div class="col-4 text-center">
-                    <div id="sparkline-1" class="text-dark"></div>
-                    <div class="text-white">Visitors</div>
-                  </div>
-                  <div class="col-4 text-center">
-                    <div id="sparkline-2" class="text-dark"></div>
-                    <div class="text-white">Online</div>
-                  </div>
-                  <div class="col-4 text-center">
-                    <div id="sparkline-3" class="text-dark"></div>
-                    <div class="text-white">Sales</div>
-                  </div>
-                </div>
-                <!--end::Row-->
-              </div>
-            </div>
-          </div>
-          <!-- /.Start col -->
         </div>
-        <!-- /.row (main row) -->
-      </div>
-      <!--end::Container-->
+
+        <!-- Total Revenue Card -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden border-l-4 border-amber-500 hover:shadow-lg transition-shadow duration-300">
+            <div class="p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-500">Total Revenue</p>
+                        <p class="text-2xl font-bold mt-1">$24,780</p>
+                        <p class="text-xs text-green-500 mt-2 flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                            </svg>
+                            15% from last month
+                        </p>
+                    </div>
+                    <div class="bg-amber-100 p-3 rounded-full">
+                        <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Active Vendors Card -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden border-l-4 border-rose-500 hover:shadow-lg transition-shadow duration-300">
+            <div class="p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-500">Active Vendors</p>
+                        <p class="text-2xl font-bold mt-1">68</p>
+                        <p class="text-xs text-green-500 mt-2 flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                            </svg>
+                            5% from last month
+                        </p>
+                    </div>
+                    <div class="bg-rose-100 p-3 rounded-full">
+                        <svg class="w-6 h-6 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+         <!-- Total Users Card -->
+         <div class="bg-white rounded-xl shadow-md overflow-hidden border-l-4 border-indigo-500 hover:shadow-lg transition-shadow duration-300">
+            <div class="p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-500">Total Users</p>
+                        <p class="text-2xl font-bold mt-1">1,250</p>
+                        <p class="text-xs text-green-500 mt-2 flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                            </svg>
+                            12% from last month
+                        </p>
+                    </div>
+                    <div class="bg-indigo-100 p-3 rounded-full">
+                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Orders Card -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden border-l-4 border-emerald-500 hover:shadow-lg transition-shadow duration-300">
+            <div class="p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-500">Total Orders</p>
+                        <p class="text-2xl font-bold mt-1">3,450</p>
+                        <p class="text-xs text-green-500 mt-2 flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                            </svg>
+                            8% from last month
+                        </p>
+                    </div>
+                    <div class="bg-emerald-100 p-3 rounded-full">
+                        <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Revenue Card -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden border-l-4 border-amber-500 hover:shadow-lg transition-shadow duration-300">
+            <div class="p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-500">Total Revenue</p>
+                        <p class="text-2xl font-bold mt-1">$24,780</p>
+                        <p class="text-xs text-green-500 mt-2 flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                            </svg>
+                            15% from last month
+                        </p>
+                    </div>
+                    <div class="bg-amber-100 p-3 rounded-full">
+                        <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Active Vendors Card -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden border-l-4 border-rose-500 hover:shadow-lg transition-shadow duration-300">
+            <div class="p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-500">Active Vendors</p>
+                        <p class="text-2xl font-bold mt-1">68</p>
+                        <p class="text-xs text-green-500 mt-2 flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                            </svg>
+                            5% from last month
+                        </p>
+                    </div>
+                    <div class="bg-rose-100 p-3 rounded-full">
+                        <svg class="w-6 h-6 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <!--end::App Content-->
-  </main>
+
+    <!-- Orders Table & Chart -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        <!-- Recent Orders Table -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+                <h2 class="text-lg font-semibold text-gray-800">Recent Orders</h2>
+                <a href="#" class="text-sm text-indigo-600 hover:text-indigo-800 font-medium">View All</a>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order ID</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50 transition-colors duration-150">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#ORD1001</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">John Doe</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Completed</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$120.50</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-150">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#ORD1002</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Jane Smith</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$95.00</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-150">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#ORD1003</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Alex Johnson</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Completed</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$240.00</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-150">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#ORD1004</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Emily Davis</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">Shipped</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$75.90</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-150">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#ORD1005</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Michael Brown</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-800">Cancelled</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$150.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Orders Chart -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-lg font-semibold text-gray-800">Monthly Orders</h2>
+                <div class="flex space-x-2">
+                    <button class="px-3 py-1 text-xs bg-indigo-100 text-indigo-700 rounded-md">This Year</button>
+                    <button class="px-3 py-1 text-xs bg-gray-100 text-gray-700 rounded-md">Last Year</button>
+                </div>
+            </div>
+            <canvas id="ordersChart" height="250"></canvas>
+        </div>
+    </div>
+
+    <!-- Additional Sections -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Top Products -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden col-span-1">
+            <div class="px-6 py-4 border-b border-gray-100">
+                <h2 class="text-lg font-semibold text-gray-800">Top Products</h2>
+            </div>
+            <div class="divide-y divide-gray-200">
+                <div class="px-6 py-4 flex items-center hover:bg-gray-50 transition-colors duration-150">
+                    <div class="flex-shrink-0 h-10 w-10 bg-gray-200 rounded-md flex items-center justify-center">
+                        <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-900">Wireless Headphones</p>
+                        <p class="text-sm text-gray-500">45 sales</p>
+                    </div>
+                    <div class="ml-auto text-sm font-medium text-green-600">$1,200</div>
+                </div>
+                <div class="px-6 py-4 flex items-center hover:bg-gray-50 transition-colors duration-150">
+                    <div class="flex-shrink-0 h-10 w-10 bg-gray-200 rounded-md flex items-center justify-center">
+                        <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-900">Smartphone X</p>
+                        <p class="text-sm text-gray-500">32 sales</p>
+                    </div>
+                    <div class="ml-auto text-sm font-medium text-green-600">$9,600</div>
+                </div>
+                <div class="px-6 py-4 flex items-center hover:bg-gray-50 transition-colors duration-150">
+                    <div class="flex-shrink-0 h-10 w-10 bg-gray-200 rounded-md flex items-center justify-center">
+                        <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-900">Laptop Pro</p>
+                        <p class="text-sm text-gray-500">28 sales</p>
+                    </div>
+                    <div class="ml-auto text-sm font-medium text-green-600">$14,000</div>
+                </div>
+                <div class="px-6 py-4 flex items-center hover:bg-gray-50 transition-colors duration-150">
+                    <div class="flex-shrink-0 h-10 w-10 bg-gray-200 rounded-md flex items-center justify-center">
+                        <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-900">Smart Watch</p>
+                        <p class="text-sm text-gray-500">25 sales</p>
+                    </div>
+                    <div class="ml-auto text-sm font-medium text-green-600">$1,250</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activities -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden col-span-1">
+            <div class="px-6 py-4 border-b border-gray-100">
+                <h2 class="text-lg font-semibold text-gray-800">Recent Activities</h2>
+            </div>
+            <div class="divide-y divide-gray-200">
+                <div class="px-6 py-4 hover:bg-gray-50 transition-colors duration-150">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-sm font-medium text-gray-900">New order #ORD1006</p>
+                            <p class="text-sm text-gray-500">Order placed by Sarah Wilson</p>
+                            <p class="text-xs text-gray-400 mt-1">2 minutes ago</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-6 py-4 hover:bg-gray-50 transition-colors duration-150">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-green-100 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-sm font-medium text-gray-900">Payment received</p>
+                            <p class="text-sm text-gray-500">$240.00 for order #ORD1003</p>
+                            <p class="text-xs text-gray-400 mt-1">15 minutes ago</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-6 py-4 hover:bg-gray-50 transition-colors duration-150">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-sm font-medium text-gray-900">Order shipped</p>
+                            <p class="text-sm text-gray-500">Order #ORD1004 has been shipped</p>
+                            <p class="text-xs text-gray-400 mt-1">1 hour ago</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-6 py-4 hover:bg-gray-50 transition-colors duration-150">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-amber-100 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-sm font-medium text-gray-900">Low stock alert</p>
+                            <p class="text-sm text-gray-500">Wireless Headphones stock is low</p>
+                            <p class="text-xs text-gray-400 mt-1">3 hours ago</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vendor Performance -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden col-span-1">
+            <div class="px-6 py-4 border-b border-gray-100">
+                <h2 class="text-lg font-semibold text-gray-800">Top Vendors</h2>
+            </div>
+            <div class="divide-y divide-gray-200">
+                <div class="px-6 py-4 flex items-center hover:bg-gray-50 transition-colors duration-150">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Vendor">
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-900">TechGadgets Inc.</p>
+                        <p class="text-sm text-gray-500">45 orders | $5,600</p>
+                    </div>
+                    <div class="ml-auto">
+                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">4.8 ★</span>
+                    </div>
+                </div>
+                <div class="px-6 py-4 flex items-center hover:bg-gray-50 transition-colors duration-150">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Vendor">
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-900">FashionHub</p>
+                        <p class="text-sm text-gray-500">38 orders | $3,200</p>
+                    </div>
+                    <div class="ml-auto">
+                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">4.7 ★</span>
+                    </div>
+                </div>
+                <div class="px-6 py-4 flex items-center hover:bg-gray-50 transition-colors duration-150">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Vendor">
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-900">HomeEssentials</p>
+                        <p class="text-sm text-gray-500">32 orders | $2,800</p>
+                    </div>
+                    <div class="ml-auto">
+                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">4.6 ★</span>
+                    </div>
+                </div>
+                <div class="px-6 py-4 flex items-center hover:bg-gray-50 transition-colors duration-150">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
+                        <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Vendor">
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-900">ElectroWorld</p>
+                        <p class="text-sm text-gray-500">28 orders | $4,100</p>
+                    </div>
+                    <div class="ml-auto">
+                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">4.5 ★</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+@section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('ordersChart').getContext('2d');
+    const ordersChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [
+                {
+                    label: '2023',
+                    data: [120, 190, 170, 220, 250, 210, 280, 240, 300, 320, 350, 380],
+                    backgroundColor: 'rgba(79, 70, 229, 0.7)',
+                    borderRadius: 4
+                },
+                {
+                    label: '2022',
+                    data: [90, 120, 140, 160, 180, 150, 200, 180, 220, 240, 260, 290],
+                    backgroundColor: 'rgba(199, 210, 254, 0.7)',
+                    borderRadius: 4
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false,
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    }
+                },
+                y: { 
+                    beginAtZero: true,
+                    grid: {
+                        drawBorder: false
+                    }
+                }
+            },
+            interaction: {
+                mode: 'nearest',
+                axis: 'x',
+                intersect: false
+            }
+        }
+    });
+</script>
 @endsection

@@ -18,16 +18,16 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware(['auth', 'superadmin'])->prefix('admin')->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+Route::middleware(['auth', 'superadmin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 });
 
-Route::middleware(['auth', 'vendor'])->prefix('vendor')->group(function () {
-    Route::get('/dashboard', [VendorController::class, 'dashboard'])->name('vendor.dashboard');
+Route::middleware(['auth', 'vendor'])->group(function () {
+    Route::get('/vendor/dashboard', [VendorController::class, 'dashboard'])->name('vendor.dashboard');
 });
 
-Route::middleware(['auth', 'customer'])->prefix('customer')->group(function () {
-    Route::get('/dashboard', [CustomerController::class, 'dashboard'])->name('customer.dashboard');
+Route::middleware(['auth', 'customer'])->group(function () {
+    Route::get('/customer/dashboard', [CustomerController::class, 'dashboard'])->name('customer.dashboard');
 });
 
 
@@ -65,7 +65,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
     Route::get('/users/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
     Route::post('/users/update/{id}', [UserController::class, 'update'])->name('users.update');
-    Route::delete('/users/destroy', [UserController::class, 'destroy'])->name('users.destroy');
+    // Route::delete('/users/destroy', [UserController::class, 'destroy'])->name('users.destroy');
+    Route::get('/users/{id}', [UserController::class, 'delete'])->name('users.delete');
+    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
     Route::get('/artical/index', [ArticalController::class, 'index'])->name('artical.index');
     Route::get('/artical/create', [ArticalController::class, 'create'])->name('artical.create');

@@ -136,7 +136,15 @@
           <ul class="dropdown-menu dropdown-menu-sm dropdown_card_cus dropdown-menu-end">
            <li><a href=""><i class="fa-solid fa-user"></i> Profile</a></li>
            <li><a href=""><i class="fa-solid fa-gear"></i> Settings</a></li>
-           <li><a href=""><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+           <li style="margin-left: 9px;">
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+
+                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    this.closest('form').submit();"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </form>
+
+        </li>
           </ul>
         </li>
       </ul>

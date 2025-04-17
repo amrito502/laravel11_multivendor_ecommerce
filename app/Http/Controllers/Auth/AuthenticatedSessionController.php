@@ -25,19 +25,26 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
-
         $request->session()->regenerate();
+    
         $user = Auth::user();
-        // Check if the user has a role and redirect accordingly
+        // if (!$user->roles->count()) {
+        //     Auth::logout();
+        //     return redirect()->route('login')->withErrors(['role' => 'Access denied. No role assigned.']);
+        // }
+    
         if ($user->hasRole('superadmin')) {
             return redirect()->route('admin.dashboard');
-        } elseif ($user->hasRole('vendor')) {
+        }
+    
+        if ($user->hasRole('vendor')) {
             return redirect()->route('vendor.dashboard');
         }
-
-
-        return redirect()->intended(route('dashboard', absolute: false));
+    
+        // Optional: default fallback
+        return redirect()->route('dashboard');
     }
+    
 
     /**
      * Destroy an authenticated session.
